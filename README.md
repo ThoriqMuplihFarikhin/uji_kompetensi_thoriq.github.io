@@ -1,0 +1,1 @@
+# uji_kompetensi_thoriq.github.io
