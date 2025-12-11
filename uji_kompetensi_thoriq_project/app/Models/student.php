@@ -9,19 +9,21 @@ class student extends Model
     protected $fillable = [
         'nis',
         'name',
+        'gender',
         'class',
+        'address',
         'status',
     ];
 
-    public $timestamps = true;
 
     public function invoices()
     {
-        return $this->hasMany(Invoice::class, 'student_id', 'id');
+        return $this->hasMany(Invoice::class, 'student_id');
     }
+
 
     public function payments()
     {
-        return $this->hasMany(Payment::class, 'student_id', 'id');
+        return $this->hasMany(Payment::class);
     }
 }

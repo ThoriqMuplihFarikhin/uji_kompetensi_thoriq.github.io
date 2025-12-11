@@ -5,35 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class invoice extends Model
+class Invoice extends Model
 {
 
     use HasFactory;
 
-    protected $table = 'invoices';
-    protected $primaryKey = 'id';
     protected $fillable = [
         'student_id',
-        'spp_id',
+        'spp_plan_id',
         'period',
         'amount',
         'status',
     ];
 
-    public $timestamps = true;
-
     public function student()
     {
-        return $this->belongsTo(Student::class, 'student_id', 'id');
+        return $this->belongsTo(Student::class, 'student_id');
     }
 
-    public function spp()
+    public function sppplan()
     {
-        return $this->belongsTo(Spp::class, 'spp_id', 'id');
+        return $this->belongsTo(sppplan::class, 'spp_plan_id');
     }
 
     public function payments()
     {
-        return $this->hasMany(Payment::class, 'invoice_id', 'id');
+        return $this->hasMany(Payment::class, 'invoice_id');
     }
 }

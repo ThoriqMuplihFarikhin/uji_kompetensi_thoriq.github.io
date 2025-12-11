@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nis');
             $table->string('name');
+            $table->string('gender')->nullable();
             $table->string('class')->nullable();
+            $table->string('address')->nullable();
             $table->string('status')->default('active');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('spp_plans', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('amount'); // nominal SPP
-            $table->string('period', 20); // contoh: 2024-01
+            $table->string('period'); // contoh: 2024-01
             $table->timestamps();
         });
     }
